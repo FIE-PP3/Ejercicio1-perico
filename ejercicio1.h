@@ -8,6 +8,7 @@ using namespace std;
 class Lugar {
 public:
     Lugar(float const v) : km(v) {}
+
     float NroKm() {
         return km;
     }
