@@ -27,7 +27,7 @@ public:
             ubicacion = destino;
             energia -= consumo;
         } else {
-            cout << "\nNo tengo suficiente energía para llegar al km " << destino->NroKm() << endl;
+            cout << "No tengo suficiente energía para llegar al km " << destino->NroKm() << endl;
         }
     }
     
@@ -43,6 +43,15 @@ public:
         return ubicacion->NroKm();
     }
     
+    void Consulta (float p){
+        float dist;
+        dist=abs(p - ubicacion->NroKm());
+        if ((energia-10.0)>=dist)
+            cout<<"Pepita puede ir al Km "<<p<<endl;
+        else
+            cout<<"Pepita puede NO ir al Km "<<p<<" me falta "<<abs(energia-10.0-dist)<<" joules o "<<abs(energia-10.0-dist)/4.0 <<" gr de comida"<<endl;
+    }
+
 private:
     float energia;
     Lugar * ubicacion;
