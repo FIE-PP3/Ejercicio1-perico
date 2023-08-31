@@ -7,39 +7,45 @@ using namespace std;
 
 class Lugar {
 public:
-    Lugar(float v){
-    km=v;
-};
-    float NroKm(){
+    Lugar(float const v) : km(v) {}
+    float NroKm() {
         return km;
-    };
+    }
 private:
     float km;
 };
 
 class Pepita {
 public:
-    void volar(float distancia){
-        float consumo=10.0;
-        consumo+=distancia;
-        if( energia < consumo)
-            energia=0;
-        else
-            energia-=consumo;
-    };
-    void comer(float comida){
-        energia+=comida*4.0;
-    };
-    float MostrarEnergia(){
-        return energia;
-};
-    float recorrido(float inicio, float final){
-        if(inicio<final)
-            return final-inicio;
-        return inicio-final;
+    Pepita(float e, Lugar *inicio) : energia(e), ubicacion(inicio) {}
+    
+    void volar(Lugar *destino) {
+        float distancia = abs(destino->NroKm() - ubicacion->NroKm());
+        float consumo = 10.0 + distancia;
+        
+        if (energia >= consumo) {
+            ubicacion = destino;
+            energia -= consumo;
+        } else {
+            cout << "\nNo tengo suficiente energía para llegar al km " << destino->NroKm() << endl;
+        }
     }
+    
+    void comer(float comida) {
+        energia += comida * 4.0;
+    }
+    
+    float MostrarEnergia() {
+        return energia;
+    }
+    
+    float MostrarUbicacion() {
+        return ubicacion->NroKm();
+    }
+    
 private:
-    float energia =0.0;
-
+    float energia;
+    Lugar * ubicacion;
 };
+
 #endif
