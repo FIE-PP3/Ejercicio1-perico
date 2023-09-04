@@ -7,7 +7,6 @@ int main() {
     Lugar Atalaya(20.0);        // instacia un objeto Lugar con el nombre de Atalaya al KM 20
     
     Pepita pepita(100.0,&YPF);  // instacia un objeto Pepita con el nombre de pepita con 100 J y ubicacion inicial en YPF
-    
     /*
     Los siguientes llamados son para comprobar los distintos escenarios. 
     */
