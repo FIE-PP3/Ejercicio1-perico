@@ -5,6 +5,22 @@
 
 using namespace std;
 
+/*
+Declaración de la clase Lugar
+*/
+class Lugar {
+public:
+    Lugar(float const v) : km(v) {} // Declaración del constructor
+    /*
+    Función que devuelve el km (float).
+    */
+    float NroKm() {
+        return km;
+    }
+private:    // Atributos
+    float km;
+};
+
 class Pepita { // Declaración de la clase "Pepita"
 public:
     Pepita(float e, Lugar *inicio) : energia(e), ubicacion(inicio) {} // Declaración del constructor
@@ -58,22 +74,6 @@ public:
 private:    // Atributos
     float energia;
     Lugar * ubicacion;
-};
-
-/*
-Declaración de la clase Lugar
-*/
-class Lugar {
-public:
-    Lugar(float const v) : km(v) {} // Declaración del constructor
-    /*
-    Función que devuelve el km (float).
-    */
-    float NroKm() {
-        return km;
-    }
-private:    // Atributos
-    float km;
 };
 
 #endif
